@@ -1,5 +1,13 @@
 // guardo el formulario en una variable
 let miFormulario = document.querySelector("#formulario");
+miFormulario.innerHTML = `<form id="formulario" class="formulario">
+<h1>Crear cuenta</h1>
+<label for="fname">First name:</label>
+<input type="text" id="fname" name="fname">
+<label for="lname">Last name:</label>
+<input type="text" id="lname" name="lname">
+<input type="submit" value="Enviar" class="submit">
+</form>`
 // get the feedback div element so we can do something with it.
 const feedbackElement = document.getElementById("feedback");
  // get the form so we can read what was entered in it.
