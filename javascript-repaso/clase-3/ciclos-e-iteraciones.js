@@ -38,19 +38,12 @@
 
 /* Suma de los primeros N números naturales: Escribe un programa que calcule la suma de los primeros N números naturales, donde N es un número dado por el usuario.
  */
-// let sumaN = Number(prompt("Ingrese un numero:"));
-// let sumaTotal = 0;
-
-// for (let i = 1; i <= sumaN; i++) {
-//     sumaTotal = sumaTotal + i;
-// }
-
-// console.log(`La suma de los primeros ${sumaN} números naturales es: ${sumaTotal}`);
+// po
 
 /* Contar vocales en una cadena: Escribe un programa que cuente y muestre la cantidad de vocales (a, e, i, o, u) en una cadena dada por el usuario.
  */
 
-let cadena = prompt("Ingrese una cadena de texto:").toLowerCase(); // Convertimos la cadena a minúsculas para hacer la comparación de manera no sensible a mayúsculas/minúsculas
+/* let cadena = prompt("Ingrese una cadena de texto:").toLowerCase(); // Convertimos la cadena a minúsculas para hacer la comparación de manera no sensible a mayúsculas/minúsculas
 let conteoVocales = 0;
 
 for (let i = 0; i < cadena.length; i++) {
@@ -61,3 +54,12 @@ for (let i = 0; i < cadena.length; i++) {
 }
 
 console.log(`La cantidad de vocales en la cadena "${cadena}" es: ${conteoVocales}`);
+ */
+
+/* Estructura del bucle while
+    while(codicion){
+        codigo a repetir siempre que que la codicion sea verdadera
+    }
+*/
+
+
