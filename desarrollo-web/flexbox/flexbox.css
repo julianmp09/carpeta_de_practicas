@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container-flex{
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.container-children{
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    background-color: aquamarine;
+}
+
+  
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    padding: 2rem;
+    gap: 20px;
+    max-width: 100%;
+}
+  
+  .card {
+    flex: 1 1 200px; /*lex Grow, Flex Shrink, Flex Basis*/
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
