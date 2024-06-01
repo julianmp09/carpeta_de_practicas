@@ -144,7 +144,7 @@ producto.vender(100); // Intentar vender más unidades de las disponibles */
 
 */
 
-let persona = {
+/* let persona = {
     nombre : "julian",
     edad: 26,
     genero: "Masculino",
@@ -178,4 +178,8 @@ persona.imprimirInformacion();
 
 
 let añoActual = Number(prompt("Ingrese el año actual"));
-console.log(`Usted nacio en el año ${persona.calcularAñoDeNacimiento()}`);
+console.log(`Usted nacio en el año ${persona.calcularAñoDeNacimiento()}`); */
+
+/* 1)  Gestor de Tareas:
+Crea un programa que permita gestionar tareas. Cada tarea debe tener un nombre, una descripción y un estado (por ejemplo, pendiente, en progreso, completada). Deberías poder agregar nuevas tareas, marcar tareas como completadas y listar todas las tareas. */
+

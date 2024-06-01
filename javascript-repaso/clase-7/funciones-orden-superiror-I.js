@@ -119,3 +119,146 @@ const productos = [
 
 Este nuevo array de nombres de productos podría ser utilizado, por ejemplo, para mostrar una lista de productos en una página web o para realizar cualquier otra operación que requiera solo los nombres de los productos.
 */
+
+// Metodo reduce
+/* reduce() es un método que se utiliza en arrays para reducir los elementos del mismo a un único valor. Este valor puede ser cualquier cosa, desde un número hasta un objeto más complejo, dependiendo de cómo se implemente la función de reducción. */
+
+/* La sintaxis básica es la siguiente:
+
+array.reduce(function(acumulador, elementoActual, indice, array), valorInicial)
+
+acumulador: El valor acumulado que resulta de las sucesivas llamadas a la función de reducción. En cada iteración, este valor se actualiza según el retorno de la función que se pasa como argumento.
+
+elementoActual: El elemento actual que está siendo procesado en el array.
+
+indice (opcional): El índice del elementoActual dentro del array.
+
+array (opcional): El array sobre el que se está iterando.
+
+valorInicial (opcional): Un valor inicial para el acumulador. Si se omite, el valor inicial será el primer elemento del array y el proceso de reducción comenzará desde el segundo elemento.
+ */
+
+// Ejemplo: 
+const array = [1, 2, 3, 4, 5];
+
+const suma = array.reduce((acumulador, elementoActual) => acumulador + elementoActual, 0);
+
+console.log(suma); // Output: 15
+
+/* En este ejemplo, el valor inicial del acumulador se establece en 0, y luego en cada iteración se suma el elemento actual al acumulador.
+
+El método reduce() es muy versátil y se puede utilizar para una amplia variedad de tareas, desde sumar números hasta concatenar strings o incluso realizar operaciones más complejas como filtrar y transformar datos. */
+
+const carrito = [
+  { nombre: 'Camisa', precio: 20, cantidad: 2 },
+  { nombre: 'Pantalón', precio: 30, cantidad: 1 },
+  { nombre: 'Zapatos', precio: 50, cantidad: 1 },
+  { nombre: 'Sombrero', precio: 10, cantidad: 3 }
+];
+
+const resumenCarrito = carrito.reduce((acumulador, producto) => {
+  // Sumamos el precio total del producto al acumulador
+  acumulador.total += producto.precio * producto.cantidad;
+
+  // Agregamos el nombre del producto y su cantidad al resumen
+  if (acumulador.productos[producto.nombre]) {
+    acumulador.productos[producto.nombre] += producto.cantidad;
+  } else {
+    acumulador.productos[producto.nombre] = producto.cantidad;
+  }
+
+  return acumulador;
+}, { total: 0, productos: {} });
+
+console.log(resumenCarrito);
+
+// ejercicios de practica:
+
+/* Calcular promedio de calificaciones:
+Escribe una función que tome un array de calificaciones y devuelva el promedio. Utiliza métodos de arrays como reduce() para sumar las calificaciones y luego divídelas por la cantidad de calificaciones para obtener el promedio. */
+
+const calificacion = [10,8,7,5];
+
+const calificaciones = (arrayCalificaciones) => {
+  const suma = arrayCalificaciones.reduce((acumulador, calificacion) => acumulador + calificacion, 0);
+
+  return suma / arrayCalificaciones.length;
+}
+
+console.log(calificaciones(calificacion));
+
+/* Filtrar números pares:
+Escribe una función que tome un array de números y devuelva un nuevo array con solo los números pares. Utiliza el método filter() para filtrar los números pares y un condicional para determinar si un número es par.
+
+ */
+
+const numeros3 = [1,2,3,4,5,6];
+
+const filtarNumerosPares = (numeros3) => {
+    const numeroPares = numeros3.filter(numero => numero % 2 === 0)
+    return numeroPares;
+}
+
+console.log(filtarNumerosPares(numeros3));
+
+/* Encontrar el máximo de un objeto:
+Crea una función que tome un array de objetos, donde cada objeto representa un producto con propiedades como nombre y precio, y devuelva el objeto con el precio máximo. Utiliza el método reduce() para encontrar el objeto con el precio máximo. */
+
+/* const objetos = [
+  {nombre: "Pokemon Escudo", precio: 80},
+  {nombre: "Halo 4", precio: 50},
+  {nombre: "Spider-Man 2", precio: 120},
+]
+
+const EncuentreElMaximoDeUnObjeto = (objetos) => {
+      const precioMaximo = objetos.reduce((acumulador, objeto) => {
+        if (objeto.precio > acumulador.precio){
+          return objeto;
+        } else {
+          return acumulador
+        }
+      }
+    )
+    return precioMaximo;
+}
+
+console.log((EncuentreElMaximoDeUnObjeto(objetos)));
+ */
+/* Encontrar objeto con propiedad específica:
+Escribe una función que tome un array de objetos y un nombre, y devuelva el objeto que tenga ese nombre.*/
+
+
+/* const nombreSolicitado = prompt("Ingrese un nombre");
+
+const objetosVarios = [
+  {nombre: "julian", ciudad: "Buenos Aires", edad: 27},
+  {nombre: "nicole", ciudad: "Buenos Aires", edad: 26},
+  {nombre: "gabriel", ciudad: "Buenos Aires", edad: 25}
+]
+
+const EncuentreElObjeto = (objetos, nombre) => {
+      return objetos.reduce((acumulador, objeto) => {
+        if (objeto.nombre === nombre){
+          return objeto
+        } else {
+          return acumulador;
+        }
+      }, null)
+}
+
+console.log(EncuentreElObjeto(objetosVarios, nombreSolicitado)); */
+
+/* Eliminar duplicados de un array:
+Escribe una función que tome un array y elimine los elementos duplicados, devolviendo un nuevo array con elementos únicos. */
+
+const eliminarDuplicados = (array) => {
+  return array.filter((elemento, indice) => {
+    // Devuelve true si el índice del elemento es igual al índice de su primera ocurrencia
+    return array.indexOf(elemento) === indice;
+  });
+};
+
+// Ejemplo de uso
+const arrayOriginal = [1, 2, 3, 4, 1, 2, 5];
+const arrayUnico = eliminarDuplicados(arrayOriginal);
+console.log(arrayUnico); // Resultado: [1, 2, 3, 4, 5]
