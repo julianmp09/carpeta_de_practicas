@@ -183,3 +183,72 @@ console.log(`Usted nacio en el año ${persona.calcularAñoDeNacimiento()}`); */
 /* 1)  Gestor de Tareas:
 Crea un programa que permita gestionar tareas. Cada tarea debe tener un nombre, una descripción y un estado (por ejemplo, pendiente, en progreso, completada). Deberías poder agregar nuevas tareas, marcar tareas como completadas y listar todas las tareas. */
 
+/* 
+    Gestor de Libros:
+Crea un programa que permita almacenar información sobre libros. Debe permitir agregar nuevos libros, mostrar información de un libro específico, listar todos los libros almacenados y buscar libros por título o autor.
+*/
+
+// Definir la clase Libro
+class Libro {
+    constructor(titulo, autor, genero, año) {
+        this.titulo = titulo;
+        this.autor = autor;
+        this.genero = genero;
+        this.año = año;
+    }
+}
+
+// Definir la clase GestorLibros
+class GestorLibros {
+    constructor() {
+        this.libros = [];
+    }
+
+    // Método para agregar un nuevo libro
+    agregarLibro(libro) {
+        this.libros.push(libro);
+    }
+
+    // Método para mostrar información de un libro específico
+    mostrarLibro(titulo) {
+        const libroEncontrado = this.libros.find(libro => libro.titulo === titulo);
+        if (libroEncontrado) {
+            console.log(libroEncontrado);
+        } else {
+            console.log("Libro no encontrado");
+        }
+    }
+
+    // Método para listar todos los libros almacenados
+    listarLibros() {
+        this.libros.forEach(libro => console.log(libro));
+    }
+
+    // Método para buscar libros por título o autor
+    buscarLibros(busqueda) {
+        const librosEncontrados = this.libros.filter(libro =>
+            libro.titulo.toLowerCase().includes(busqueda.toLowerCase()) ||
+            libro.autor.toLowerCase().includes(busqueda.toLowerCase())
+        );
+        librosEncontrados.forEach(libro => console.log(libro));
+    }
+}
+
+// Ejemplo de uso
+const gestorLibros = new GestorLibros();
+
+// Agregar nuevos libros
+gestorLibros.agregarLibro(new Libro("Cien años de soledad", "Gabriel García Márquez", "Realismo mágico", 1967));
+gestorLibros.agregarLibro(new Libro("El principito", "Antoine de Saint-Exupéry", "Literatura infantil", 1943));
+gestorLibros.agregarLibro(new Libro("1984", "George Orwell", "Distopía", 1949));
+
+// Mostrar información de un libro específico
+gestorLibros.mostrarLibro("Cien años de soledad");
+
+// Listar todos los libros almacenados
+console.log("Listado de libros:");
+gestorLibros.listarLibros();
+
+// Buscar libros por título o autor
+console.log("Resultados de la búsqueda:");
+gestorLibros.buscarLibros("Orwell");
