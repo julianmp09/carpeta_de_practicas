@@ -188,67 +188,255 @@ Crea un programa que permita gestionar tareas. Cada tarea debe tener un nombre, 
 Crea un programa que permita almacenar información sobre libros. Debe permitir agregar nuevos libros, mostrar información de un libro específico, listar todos los libros almacenados y buscar libros por título o autor.
 */
 
-// Definir la clase Libro
-class Libro {
-    constructor(titulo, autor, genero, año) {
-        this.titulo = titulo;
-        this.autor = autor;
-        this.genero = genero;
-        this.año = año;
+// // Definir la clase Libro
+// class Libro {
+//     constructor(titulo, autor, genero, año) {
+//         this.titulo = titulo;
+//         this.autor = autor;
+//         this.genero = genero;
+//         this.año = año;
+//     }
+// }
+
+// // Definir la clase GestorLibros
+// class GestorLibros {
+//     constructor() {
+//         this.libros = [];
+//     }
+
+//     // Método para agregar un nuevo libro
+//     agregarLibro(libro) {
+//         this.libros.push(libro);
+//     }
+
+//     // Método para mostrar información de un libro específico
+//     mostrarLibro(titulo) {
+//         const libroEncontrado = this.libros.find(libro => libro.titulo === titulo);
+//         if (libroEncontrado) {
+//             console.log(libroEncontrado);
+//         } else {
+//             console.log("Libro no encontrado");
+//         }
+//     }
+
+//     // Método para listar todos los libros almacenados
+//     listarLibros() {
+//         this.libros.forEach(libro => console.log(libro));
+//     }
+
+//     // Método para buscar libros por título o autor
+//     buscarLibros(busqueda) {
+//         const librosEncontrados = this.libros.filter(libro =>
+//             libro.titulo.toLowerCase().includes(busqueda.toLowerCase()) ||
+//             libro.autor.toLowerCase().includes(busqueda.toLowerCase())
+//         );
+//         librosEncontrados.forEach(libro => console.log(libro));
+//     }
+// }
+
+// // Ejemplo de uso
+// const gestorLibros = new GestorLibros();
+
+// // Agregar nuevos libros
+// gestorLibros.agregarLibro(new Libro("Cien años de soledad", "Gabriel García Márquez", "Realismo mágico", 1967));
+// gestorLibros.agregarLibro(new Libro("El principito", "Antoine de Saint-Exupéry", "Literatura infantil", 1943));
+// gestorLibros.agregarLibro(new Libro("1984", "George Orwell", "Distopía", 1949));
+
+// // Mostrar información de un libro específico
+// gestorLibros.mostrarLibro("Cien años de soledad");
+
+// // Listar todos los libros almacenados
+// console.log("Listado de libros:");
+// gestorLibros.listarLibros();
+
+// // Buscar libros por título o autor
+// console.log("Resultados de la búsqueda:");
+// gestorLibros.buscarLibros("Orwell");
+
+
+/* Registro de estudiantes:
+Crea un programa que permita registrar información básica de estudiantes, como nombre, edad y grado. Cada estudiante debe ser representado como un objeto con propiedades para almacenar esta información.
+
+*/
+
+// Definir una clase Estudiante
+// class Estudiante {
+//     constructor(nombre, edad, grado) {
+//         this.nombre = nombre;
+//         this.edad = edad;
+//         this.grado = grado;
+//     }
+
+//     // Método para mostrar la información del estudiante
+//     mostrarInfo() {
+//         console.log(`Nombre: ${this.nombre}, Edad: ${this.edad}, Grado: ${this.grado}`);
+//     }
+// }
+
+// // Función para registrar un nuevo estudiante
+// function registrarEstudiante() {
+//     // Solicitar información al usuario
+//     let nombre = prompt("Ingrese el nombre del estudiante:");
+//     let edad = parseInt(prompt("Ingrese la edad del estudiante:"));
+//     let grado = prompt("Ingrese el grado del estudiante:");
+
+//     // Crear un nuevo objeto Estudiante con la información proporcionada
+//     let nuevoEstudiante = new Estudiante(nombre, edad, grado);
+
+//     // Devolver el nuevo objeto Estudiante
+//     return nuevoEstudiante;
+// }
+
+// // Función principal
+// function main() {
+//     // Crear un array para almacenar los estudiantes
+//     let estudiantes = [];
+
+//     // Registrar varios estudiantes
+//     for (let i = 0; i < 3; i++) {
+//         console.log(`Ingrese los datos del estudiante ${i + 1}:`);
+//         let nuevoEstudiante = registrarEstudiante();
+//         estudiantes.push(nuevoEstudiante);
+//     }
+
+//     // Mostrar la información de todos los estudiantes registrados
+//     console.log("Estudiantes registrados:");
+//     estudiantes.forEach(estudiante => {
+//         estudiante.mostrarInfo();
+//     });
+// }
+
+// // Llamar a la función principal para ejecutar el programa
+// main();
+
+/* Juego de cartas:
+Implementa un juego de cartas simple, como el blackjack. Cada carta en el juego puede ser un objeto con propiedades como valor y palo. Puedes crear objetos adicionales para representar la baraja y la mano de cada jugador, y definir métodos para mezclar la baraja, repartir cartas y calcular la puntuación de cada jugador.
+*/
+
+// Definir la clase Carta
+class Carta {
+    constructor(valor, palo) {
+        this.valor = valor;
+        this.palo = palo;
     }
 }
 
-// Definir la clase GestorLibros
-class GestorLibros {
+// Definir la clase Baraja
+class Baraja {
     constructor() {
-        this.libros = [];
-    }
+        this.cartas = [];
+        const palos = ['Corazones', 'Diamantes', 'Tréboles', 'Picas'];
+        const valores = ['As', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
 
-    // Método para agregar un nuevo libro
-    agregarLibro(libro) {
-        this.libros.push(libro);
-    }
-
-    // Método para mostrar información de un libro específico
-    mostrarLibro(titulo) {
-        const libroEncontrado = this.libros.find(libro => libro.titulo === titulo);
-        if (libroEncontrado) {
-            console.log(libroEncontrado);
-        } else {
-            console.log("Libro no encontrado");
+        for (let palo of palos) {
+            for (let valor of valores) {
+                this.cartas.push(new Carta(valor, palo));
+            }
         }
     }
 
-    // Método para listar todos los libros almacenados
-    listarLibros() {
-        this.libros.forEach(libro => console.log(libro));
+    // Método para mezclar la baraja
+    mezclar() {
+        for (let i = this.cartas.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [this.cartas[i], this.cartas[j]] = [this.cartas[j], this.cartas[i]];
+        }
     }
 
-    // Método para buscar libros por título o autor
-    buscarLibros(busqueda) {
-        const librosEncontrados = this.libros.filter(libro =>
-            libro.titulo.toLowerCase().includes(busqueda.toLowerCase()) ||
-            libro.autor.toLowerCase().includes(busqueda.toLowerCase())
-        );
-        librosEncontrados.forEach(libro => console.log(libro));
+    // Método para repartir una carta
+    repartir() {
+        return this.cartas.pop();
     }
 }
 
-// Ejemplo de uso
-const gestorLibros = new GestorLibros();
+// Definir la clase Jugador
+class Jugador {
+    constructor(nombre) {
+        this.nombre = nombre;
+        this.manos = [];
+    }
 
-// Agregar nuevos libros
-gestorLibros.agregarLibro(new Libro("Cien años de soledad", "Gabriel García Márquez", "Realismo mágico", 1967));
-gestorLibros.agregarLibro(new Libro("El principito", "Antoine de Saint-Exupéry", "Literatura infantil", 1943));
-gestorLibros.agregarLibro(new Libro("1984", "George Orwell", "Distopía", 1949));
+    // Método para recibir una carta
+    recibirCarta(carta) {
+        this.manos.push(carta);
+    }
 
-// Mostrar información de un libro específico
-gestorLibros.mostrarLibro("Cien años de soledad");
+    // Método para calcular la puntuación de la mano
+    calcularPuntuacion() {
+        let puntuacion = 0;
+        let ases = 0;
 
-// Listar todos los libros almacenados
-console.log("Listado de libros:");
-gestorLibros.listarLibros();
+        for (let carta of this.manos) {
+            if (carta.valor === 'As') {
+                ases++;
+                puntuacion += 11;
+            } else if (carta.valor === 'J' || carta.valor === 'Q' || carta.valor === 'K') {
+                puntuacion += 10;
+            } else {
+                puntuacion += parseInt(carta.valor);
+            }
+        }
 
-// Buscar libros por título o autor
-console.log("Resultados de la búsqueda:");
-gestorLibros.buscarLibros("Orwell");
+        while (puntuacion > 21 && ases > 0) {
+            puntuacion -= 10;
+            ases--;
+        }
+
+        return puntuacion;
+    }
+}
+
+// Función para iniciar el juego
+function jugarBlackjack() {
+    const baraja = new Baraja();
+    baraja.mezclar();
+
+    const jugador = new Jugador('Jugador');
+    const crupier = new Jugador('Crupier');
+
+    // Repartir cartas iniciales
+    jugador.recibirCarta(baraja.repartir());
+    crupier.recibirCarta(baraja.repartir());
+    jugador.recibirCarta(baraja.repartir());
+    crupier.recibirCarta(baraja.repartir());
+
+    console.log(`Cartas del Jugador: ${jugador.manos.map(carta => carta.valor + ' de ' + carta.palo).join(', ')}`);
+    console.log(`Cartas del Crupier: ${crupier.manos[0].valor} de ${crupier.manos[0].palo} y una carta oculta`);
+
+    // Turno del jugador
+    while (true) {
+        const opcion = prompt('¿Deseas tomar otra carta? (s/n)').toLowerCase();
+        if (opcion === 's') {
+            jugador.recibirCarta(baraja.repartir());
+            console.log(`Cartas del Jugador: ${jugador.manos.map(carta => carta.valor + ' de ' + carta.palo).join(', ')}`);
+            const puntuacionJugador = jugador.calcularPuntuacion();
+            console.log(`Puntuación del Jugador: ${puntuacionJugador}`);
+            if (puntuacionJugador > 21) {
+                console.log('Has superado 21. ¡Perdiste!');
+                return;
+            }
+        } else {
+            break;
+        }
+    }
+
+    // Turno del crupier
+    while (crupier.calcularPuntuacion() < 17) {
+        crupier.recibirCarta(baraja.repartir());
+    }
+    console.log(`Cartas del Crupier: ${crupier.manos.map(carta => carta.valor + ' de ' + carta.palo).join(', ')}`);
+    const puntuacionCrupier = crupier.calcularPuntuacion();
+    console.log(`Puntuación del Crupier: ${puntuacionCrupier}`);
+
+    // Determinar el resultado del juego
+    if (puntuacionCrupier > 21 || (puntuacionJugador > puntuacionCrupier)) {
+        console.log('¡Ganaste!');
+    } else if (puntuacionJugador < puntuacionCrupier) {
+        console.log('¡Perdiste!');
+    } else {
+        console.log('¡Empate!');
+    }
+}
+
+// Iniciar el juego
+jugarBlackjack();
