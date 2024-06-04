@@ -1,0 +1,11 @@
+{
+    "nombre": "Juan",
+    "edad": 30,
+    "activo": true,
+    "amigos": ["María", "Pedro", "Ana"],
+    "direccion": {
+        "calle": "Calle Principal",
+        "ciudad": "Ciudad Ejemplo",
+        "pais": "Ejemplo"
+    }
+}
