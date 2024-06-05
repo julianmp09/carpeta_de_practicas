@@ -314,129 +314,151 @@ Implementa un juego de cartas simple, como el blackjack. Cada carta en el juego 
 */
 
 // Definir la clase Carta
-class Carta {
-    constructor(valor, palo) {
-        this.valor = valor;
-        this.palo = palo;
+// class Carta {
+//     constructor(valor, palo) {
+//         this.valor = valor;
+//         this.palo = palo;
+//     }
+// }
+
+// // Definir la clase Baraja
+// class Baraja {
+//     constructor() {
+//         this.cartas = [];
+//         const palos = ['Corazones', 'Diamantes', 'Tréboles', 'Picas'];
+//         const valores = ['As', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+
+//         for (let palo of palos) {
+//             for (let valor of valores) {
+//                 this.cartas.push(new Carta(valor, palo));
+//             }
+//         }
+//     }
+
+//     // Método para mezclar la baraja
+//     mezclar() {
+//         for (let i = this.cartas.length - 1; i > 0; i--) {
+//             const j = Math.floor(Math.random() * (i + 1));
+//             [this.cartas[i], this.cartas[j]] = [this.cartas[j], this.cartas[i]];
+//         }
+//     }
+
+//     // Método para repartir una carta
+//     repartir() {
+//         return this.cartas.pop();
+//     }
+// }
+
+// // Definir la clase Jugador
+// class Jugador {
+//     constructor(nombre) {
+//         this.nombre = nombre;
+//         this.manos = [];
+//     }
+
+//     // Método para recibir una carta
+//     recibirCarta(carta) {
+//         this.manos.push(carta);
+//     }
+
+//     // Método para calcular la puntuación de la mano
+//     calcularPuntuacion() {
+//         let puntuacion = 0;
+//         let ases = 0;
+
+//         for (let carta of this.manos) {
+//             if (carta.valor === 'As') {
+//                 ases++;
+//                 puntuacion += 11;
+//             } else if (carta.valor === 'J' || carta.valor === 'Q' || carta.valor === 'K') {
+//                 puntuacion += 10;
+//             } else {
+//                 puntuacion += parseInt(carta.valor);
+//             }
+//         }
+
+//         while (puntuacion > 21 && ases > 0) {
+//             puntuacion -= 10;
+//             ases--;
+//         }
+
+//         return puntuacion;
+//     }
+// }
+
+// // Función para iniciar el juego
+// function jugarBlackjack() {
+//     const baraja = new Baraja();
+//     baraja.mezclar();
+
+//     const jugador = new Jugador('Jugador');
+//     const crupier = new Jugador('Crupier');
+
+//     // Repartir cartas iniciales
+//     jugador.recibirCarta(baraja.repartir());
+//     crupier.recibirCarta(baraja.repartir());
+//     jugador.recibirCarta(baraja.repartir());
+//     crupier.recibirCarta(baraja.repartir());
+
+//     console.log(`Cartas del Jugador: ${jugador.manos.map(carta => carta.valor + ' de ' + carta.palo).join(', ')}`);
+//     console.log(`Cartas del Crupier: ${crupier.manos[0].valor} de ${crupier.manos[0].palo} y una carta oculta`);
+
+//     // Turno del jugador
+//     while (true) {
+//         const opcion = prompt('¿Deseas tomar otra carta? (s/n)').toLowerCase();
+//         if (opcion === 's') {
+//             jugador.recibirCarta(baraja.repartir());
+//             console.log(`Cartas del Jugador: ${jugador.manos.map(carta => carta.valor + ' de ' + carta.palo).join(', ')}`);
+//             const puntuacionJugador = jugador.calcularPuntuacion();
+//             console.log(`Puntuación del Jugador: ${puntuacionJugador}`);
+//             if (puntuacionJugador > 21) {
+//                 console.log('Has superado 21. ¡Perdiste!');
+//                 return;
+//             }
+//         } else {
+//             break;
+//         }
+//     }
+
+//     // Turno del crupier
+//     while (crupier.calcularPuntuacion() < 17) {
+//         crupier.recibirCarta(baraja.repartir());
+//     }
+//     console.log(`Cartas del Crupier: ${crupier.manos.map(carta => carta.valor + ' de ' + carta.palo).join(', ')}`);
+//     const puntuacionCrupier = crupier.calcularPuntuacion();
+//     console.log(`Puntuación del Crupier: ${puntuacionCrupier}`);
+
+//     // Determinar el resultado del juego
+//     if (puntuacionCrupier > 21 || (puntuacionJugador > puntuacionCrupier)) {
+//         console.log('¡Ganaste!');
+//     } else if (puntuacionJugador < puntuacionCrupier) {
+//         console.log('¡Perdiste!');
+//     } else {
+//         console.log('¡Empate!');
+//     }
+// }
+
+// // Iniciar el juego
+// jugarBlackjack();
+
+class pokemon {
+    constructor (name, type, power) {
+        this.name = name,
+        this.type = type,
+        this.power = power
     }
-}
+};
 
-// Definir la clase Baraja
-class Baraja {
-    constructor() {
-        this.cartas = [];
-        const palos = ['Corazones', 'Diamantes', 'Tréboles', 'Picas'];
-        const valores = ['As', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+document.getElementById('pokemonForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+    const name = document.getElementById('name').value;
+    const type = document.getElementById('type').value;
+    const power = document.getElementById('power').value;
 
-        for (let palo of palos) {
-            for (let valor of valores) {
-                this.cartas.push(new Carta(valor, palo));
-            }
-        }
-    }
+    const newPokemon = new pokemon(name, type, power);
+    // Acceder a cada propiedad del objeto e imprimir su nombre y valor
+    console.log("Nombre:", newPokemon.name);
+    console.log("Tipo:", newPokemon.type);
+    console.log("Poder:", newPokemon.power);
+});
 
-    // Método para mezclar la baraja
-    mezclar() {
-        for (let i = this.cartas.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [this.cartas[i], this.cartas[j]] = [this.cartas[j], this.cartas[i]];
-        }
-    }
-
-    // Método para repartir una carta
-    repartir() {
-        return this.cartas.pop();
-    }
-}
-
-// Definir la clase Jugador
-class Jugador {
-    constructor(nombre) {
-        this.nombre = nombre;
-        this.manos = [];
-    }
-
-    // Método para recibir una carta
-    recibirCarta(carta) {
-        this.manos.push(carta);
-    }
-
-    // Método para calcular la puntuación de la mano
-    calcularPuntuacion() {
-        let puntuacion = 0;
-        let ases = 0;
-
-        for (let carta of this.manos) {
-            if (carta.valor === 'As') {
-                ases++;
-                puntuacion += 11;
-            } else if (carta.valor === 'J' || carta.valor === 'Q' || carta.valor === 'K') {
-                puntuacion += 10;
-            } else {
-                puntuacion += parseInt(carta.valor);
-            }
-        }
-
-        while (puntuacion > 21 && ases > 0) {
-            puntuacion -= 10;
-            ases--;
-        }
-
-        return puntuacion;
-    }
-}
-
-// Función para iniciar el juego
-function jugarBlackjack() {
-    const baraja = new Baraja();
-    baraja.mezclar();
-
-    const jugador = new Jugador('Jugador');
-    const crupier = new Jugador('Crupier');
-
-    // Repartir cartas iniciales
-    jugador.recibirCarta(baraja.repartir());
-    crupier.recibirCarta(baraja.repartir());
-    jugador.recibirCarta(baraja.repartir());
-    crupier.recibirCarta(baraja.repartir());
-
-    console.log(`Cartas del Jugador: ${jugador.manos.map(carta => carta.valor + ' de ' + carta.palo).join(', ')}`);
-    console.log(`Cartas del Crupier: ${crupier.manos[0].valor} de ${crupier.manos[0].palo} y una carta oculta`);
-
-    // Turno del jugador
-    while (true) {
-        const opcion = prompt('¿Deseas tomar otra carta? (s/n)').toLowerCase();
-        if (opcion === 's') {
-            jugador.recibirCarta(baraja.repartir());
-            console.log(`Cartas del Jugador: ${jugador.manos.map(carta => carta.valor + ' de ' + carta.palo).join(', ')}`);
-            const puntuacionJugador = jugador.calcularPuntuacion();
-            console.log(`Puntuación del Jugador: ${puntuacionJugador}`);
-            if (puntuacionJugador > 21) {
-                console.log('Has superado 21. ¡Perdiste!');
-                return;
-            }
-        } else {
-            break;
-        }
-    }
-
-    // Turno del crupier
-    while (crupier.calcularPuntuacion() < 17) {
-        crupier.recibirCarta(baraja.repartir());
-    }
-    console.log(`Cartas del Crupier: ${crupier.manos.map(carta => carta.valor + ' de ' + carta.palo).join(', ')}`);
-    const puntuacionCrupier = crupier.calcularPuntuacion();
-    console.log(`Puntuación del Crupier: ${puntuacionCrupier}`);
-
-    // Determinar el resultado del juego
-    if (puntuacionCrupier > 21 || (puntuacionJugador > puntuacionCrupier)) {
-        console.log('¡Ganaste!');
-    } else if (puntuacionJugador < puntuacionCrupier) {
-        console.log('¡Perdiste!');
-    } else {
-        console.log('¡Empate!');
-    }
-}
-
-// Iniciar el juego
-jugarBlackjack();
