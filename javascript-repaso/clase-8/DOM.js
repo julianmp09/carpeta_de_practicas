@@ -65,3 +65,54 @@ buttom.addEventListener("click", () => {
     alert("Hola a todos")
 })
 
+class persona {
+    constructor (name, age, id){
+        this.name = name;
+        this.age = age;
+        this.id = id;
+    }
+};
+
+// const nombre = prompt("Cual es tu nombre?");
+// const edad = Number(prompt("Cual es tu edad?"));
+// const id = Number(prompt("Cual es tu numero de documento?"));
+
+// const usuario = new persona(nombre, edad, id);
+
+// // Accediendo a las propiedades de usuario
+// console.log("Nombre:", usuario.name);
+// console.log("Edad:", usuario.age);
+// console.log("ID:", usuario.id);
+
+// const usuarios = [];
+
+
+// // Pedir datos y crear usuarios
+// for (let i = 0; i < 3; i++) { // Cambia el número 3 por la cantidad de usuarios que desees crear
+//     const nombre = prompt("Cual es tu nombre?");
+//     const edad = Number(prompt("Cual es tu edad?"));
+//     const id = Number(prompt("Cual es tu numero de documento?"));
+//     const usuario = new persona(nombre, edad, id);
+//     usuarios.push(usuario); // Agregar usuario al array
+// }
+
+// // Imprimir los usuarios almacenados en el array
+// console.log("Usuarios almacenados:");
+// usuarios.forEach((usuario, index) => {
+//     console.log(`Usuario ${index + 1}:`, usuario);
+// });
+
+const colores = ["azul", "verde"];
+
+
+for (let i=0; i < 3; i++) {
+    const ingreseUnColor = prompt("Ingrese un color");
+    colores.push(ingreseUnColor);
+}
+
+colores.pop();
+
+console.log("colores ingresados: ");
+colores.forEach(color =>
+    console.log(color)
+)
