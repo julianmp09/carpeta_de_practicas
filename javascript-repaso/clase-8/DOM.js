@@ -49,29 +49,15 @@ const div = document.getElementById("container"); */
     2 paso: agregar contenido
     3 paso: agregar a un padre
 */
-const div = document.getElementById("container");
 
-const buttom = document.createElement("button")
 
-buttom.innerHTML = `click`;
-
-div.appendChild(buttom);
-
-// eliminar nodos
-
-// buttom.remove()
-
-buttom.addEventListener("click", () => {
-    alert("Hola a todos")
-})
-
-class persona {
-    constructor (name, age, id){
-        this.name = name;
-        this.age = age;
-        this.id = id;
-    }
-};
+// class persona {
+//     constructor (name, age, id){
+//         this.name = name;
+//         this.age = age;
+//         this.id = id;
+//     }
+// };
 
 // const nombre = prompt("Cual es tu nombre?");
 // const edad = Number(prompt("Cual es tu edad?"));
@@ -102,17 +88,67 @@ class persona {
 //     console.log(`Usuario ${index + 1}:`, usuario);
 // });
 
-const colores = ["azul", "verde"];
+// const colores = ["azul", "verde"];
 
 
-for (let i=0; i < 3; i++) {
-    const ingreseUnColor = prompt("Ingrese un color");
-    colores.push(ingreseUnColor);
+// for (let i=0; i < 3; i++) {
+//     const ingreseUnColor = prompt("Ingrese un color");
+//     colores.push(ingreseUnColor);
+// }
+
+// colores.pop();
+
+// console.log("colores ingresados: ");
+// colores.forEach(color =>
+//     console.log(color)
+// )
+
+// const buscar = (array) => {
+    // El problema aquí es que Math.max() no puede tomar un array como argumento directamente. Debes usar la función apply() para pasar el array como una lista de argumentos. 
+    // return Math.max(array)
+    /* La función apply() en JavaScript toma dos parámetros:
+
+    El primer parámetro es el valor que se utilizará como this dentro de la función que estás llamando. En muchos casos, si no necesitas especificar un contexto particular (como cuando usas Math.max()), puedes pasar null o undefined.
+
+    El segundo parámetro es un array o un objeto similar a un array que contiene los argumentos que se pasarán a la función. En el caso de apply(), este parámetro debe ser un array o un objeto similar a un array. */
+    // respuesta 👇👇
+//     return Math.max.apply(null, array);
+// }
+
+/* const numeros = [1,2,3,4,5,6,7,8,9];
+
+const resultado = buscar(numeros);
+console.log(resultado);
+
+const eliminarElementosRepetidos = (array) => {
+    return array.filter((item, index) => array.indexOf(item) === index);
 }
 
-colores.pop();
+const elementos = ["silla", "tv", "celular", "silla", "celular", "pantalon"];
 
-console.log("colores ingresados: ");
-colores.forEach(color =>
-    console.log(color)
-)
+const elementosSinRepetir = eliminarElementosRepetidos(elementos);
+console.log(elementosSinRepetir);
+console.log(elementos); */
+
+const container = document.querySelector("#container")
+
+
+const buttom = document.createElement("button")
+
+buttom.innerHTML = `click`;
+
+container.appendChild(buttom);
+
+buttom.addEventListener("click", () => {
+        // Obtenemos el color actual del fondo del contenedor
+        const currentColor = container.style.backgroundColor;
+    
+        // Si el color actual es blanco o no está definido, cambiamos a rojo
+        if (currentColor === "" || currentColor === "white") {
+            container.style.backgroundColor = "red";
+        } else { // Si el color actual es rojo, cambiamos a blanco
+            container.style.backgroundColor = "white";
+        }
+})
+
+
