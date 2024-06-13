@@ -152,3 +152,52 @@ buttom.addEventListener("click", () => {
 })
 
 
+/* const recopilarDatos = () => {
+    const todosLosDatos = [];
+    let datosUsuario = prompt("Ingrese algo que le guste");
+    while (datosUsuario && datosUsuario !== "salir") {
+        todosLosDatos.push(datosUsuario);
+        datosUsuario = prompt("Ingrese algo que le guste");
+    }
+    return todosLosDatos;
+}
+
+const resultado = recopilarDatos();
+console.log(resultado); */
+
+
+// Crear un equipo pokemon
+
+class pokemon {
+    constructor (nombre, tipo, region){
+        this.nombre = nombre,
+        this.tipo = tipo,
+        this.region = region
+    }
+}
+
+const pokemonesCreados = [];
+
+const creaUnPokemon = () => {
+    let nombrePokemon = prompt("Ingrese un nombre pokemon");
+    let tipoPokemon = prompt("Ingrese el tipo de pokemon");
+    let regionPokemon = prompt("Ingrese la region del pokemon");
+    const equipoPokemon = new pokemon(nombrePokemon,tipoPokemon,regionPokemon);
+    pokemonesCreados.push(equipoPokemon);
+}
+
+// Ciclo para agregar múltiples Pokémon
+let continuar = true;
+while (continuar) {
+    creaUnPokemon();
+    let opcion = prompt("¿Desea agregar otro Pokémon? (si/no)").toLowerCase();
+    if (opcion !== "si") {
+        continuar = false;
+    }
+}
+
+// Imprimir los Pokémon creados
+console.log("Pokémon creados:");
+pokemonesCreados.forEach((pokemon, index) => {
+    console.log(`Pokemon ${index + 1}: ${pokemon.nombre}, Tipo: ${pokemon.tipo}, Región: ${pokemon.region}`);
+});
